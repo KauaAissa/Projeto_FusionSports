@@ -1,0 +1,525 @@
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Exo 2", sans-serif;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #333333;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #004080;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0059b3;
+}
+
+/* Navbar */
+.navbar-container {
+  width: 100%;
+  height: 70px;
+  background-color: #001b3b;
+  padding: 0 2rem;
+  position: fixed;
+  z-index: 1000;
+}
+
+.navbar-container,
+.navbar-container a,
+.navbar-container span,
+.navbar-container li {
+  font-family: "Bebas Neue", sans-serif !important;
+}
+
+nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 70px;
+  margin-top: 2px;
+}
+
+.text-name {
+  color: #fff !important;
+  text-align: justify;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.text-name span {
+  margin-top: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  background-color: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.navbar-items {
+  position: absolute;
+  right: 0;
+  height: 80px;
+  line-height: 80px;
+  margin: 0;
+  display: inline-block;
+  font-size: 30px;
+}
+
+.navbar-items li {
+  display: inline-block;
+  text-transform: uppercase;
+  margin-left: 25px;
+}
+
+.navbar-items a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.navbar-items a:hover {
+  color: #ccc;
+}
+
+/* Barra de Navegação Secundária */
+.secondary-nav {
+  width: 100%;
+  background-color: #003972;
+  padding: 10px 0;
+  text-align: center;
+  position: sticky;
+  top: 70px;
+  z-index: 999;
+}
+
+.secondary-nav ul {
+  list-style: none;
+}
+
+.secondary-nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.secondary-nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Bebas Neue", sans-serif;
+  transition: 0.3s;
+}
+
+.secondary-nav ul li a:hover {
+  color: #ff851b;
+}
+
+/* Seções */
+.dashboard {
+  padding: 120px 40px 80px 40px;
+  background-image: url(../img/mainbannerBlue.png);
+  color: #fff;
+}
+.dashboard-section {
+  padding: 40px;
+  background-color: #002056;
+  color: #fff;
+  margin-bottom: 40px;
+  border: 2px solid #0050a0;
+}
+
+.dashboard-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #ff851b;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-weight: bold;
+  background-color: #001f3f; /* Cor de fundo desejada */
+  color: #70747a;
+  padding: 20px 0; /* Espaçamento interno para o conteúdo dentro do footer */
+  width: 100%; /* Define a largura do footer como 100% */
+  position: absolute;
+}
+
+.fullscreen-loading {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen-loading .loading-spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+main {
+  min-height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Exibir a seção ativa */
+.active {
+  display: block;
+}
+
+/* Estilo para o item ativo na aba */
+.secondary-nav ul li a.active {
+  color: #ff851b; /* Cor diferente para indicar seleção */
+
+  border-bottom: 2px solid #ff851b; /* Indica a aba selecionada */
+}
+
+/* Transição para tornar a troca suave */
+.secondary-nav ul li a {
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input,
+form textarea {
+  width: 50%; /* Tamanho adequado e centrado */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+form label {
+  width: 50%;
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #ff851b; /* Cor que destaca os títulos */
+}
+
+form .btn-salvar {
+  width: 200px;
+  padding: 10px 18px;
+  background-color: #ff851b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+form .btn-salvar:hover {
+  background-color: #ff7700;
+  transform: scale(1.05);
+}
+
+form .btn-salvar:active {
+  transform: scale(1);
+}
+
+/* Ajustando o alinhamento */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  text-align: left;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+  border-color: #ff7700; /* Destaque ao focar */
+  outline: none;
+}
+
+.horarios-funcionamento {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.horarios-funcionamento label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #003972;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  width: 300px;
+  height: 125px;
+  gap: 10px;
+  border: 2px solid #0059b3; /* Borda mais clara */
+}
+
+.horarios-funcionamento label span {
+  color: #ff851b; /* Cor laranja para os dias da semana */
+  font-weight: bold;
+}
+
+label[for="funcionamento"] {
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #ff851b;
+}
+
+.hora-input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.hora-input-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+.hora-input-container span {
+  margin-bottom: 25px;
+}
+
+.hora-input:focus {
+  outline: none;
+  border-color: #ff851b;
+}
+
+/* Estilo para o switch (checkbox) */
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #003972;
+  border-radius: 5px;
+  color: #fff;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Oculta o checkbox padrão */
+.switch input[type="checkbox"] {
+  display: none;
+}
+
+/* Cria o visual do switch */
+.slider {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo do círculo dentro do switch */
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+input[type="checkbox"]:checked + .slider {
+  background-color: #ff851b;
+}
+
+input[type="checkbox"]:checked + .slider::before {
+  transform: translate(20px, -50%);
+}
+
+/* galeria */
+
+/* Estilos para o formulário */
+
+.form-title {
+  text-align: center;
+  color: #ff851b;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ff851b;
+}
+
+input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.file-name {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.btn-salvar {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #ff851b;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-salvar:hover {
+  background-color: #ff7700;
+}
+
+/* segurança */
+
+/* Container de fundo para o formulário */
+#opcoes-seguranca {
+  background-color: #001f3f; /* Fundo azul escuro consistente com o tema */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra para dar profundidade */
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto; /* Centraliza o container */
+}
+
+/* Estilos do formulário de email e senha */
+.alteracao-email,
+.alteracao-senha {
+  background-color: #003972; /* Fundo claro para destacar os formulários */
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra leve */
+  text-align: left;
+}
+
+.alteracao-email h3,
+.alteracao-senha h3 {
+  margin-bottom: 15px;
+  color: #ff851b; /* Cor laranja para títulos */
+  font-weight: bold;
+  text-align: center; /* Centraliza o título */
+}
+
+.alteracao-email label,
+.alteracao-senha label {
+  display: block;
+  color: #ff851b; /* Texto escuro para contraste */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.alteracao-email input,
+.alteracao-senha input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff; /* Fundo branco para os inputs */
+}
+
+input[type="submit"] {
+  background-color: #ff851b; /* Botão laranja para destacar */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: 200px;
+}
+
+input[type="submit"]:hover {
+  background-color: #ff7700; /* Tom mais escuro no hover */
+}

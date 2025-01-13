@@ -1,0 +1,369 @@
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Exo 2", sans-serif;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #333333;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #004080;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0059b3;
+}
+
+/* Navbar */
+.navbar-container {
+  width: 100%;
+  height: 70px;
+  background-color: #001b3b;
+  padding: 0 2rem;
+  position: fixed;
+  z-index: 1000;
+}
+
+.navbar-container,
+.navbar-container a,
+.navbar-container span,
+.navbar-container li {
+  font-family: "Bebas Neue", sans-serif !important;
+}
+
+nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 70px;
+  margin-top: 2px;
+}
+
+.text-name {
+  color: #fff !important;
+  text-align: justify;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.text-name span {
+  margin-top: 10px;
+}
+
+/* Dashboard */
+.dashboard {
+  padding: 120px 40px 80px 40px;
+  background-image: url(../img/pattern.png);
+  color: #fff;
+}
+
+footer {
+  text-align: center;
+  font-weight: bold;
+  background-color: #001f3f;
+  color: #70747a;
+  padding: 20px 0;
+  width: 100%;
+  position: absolute;
+}
+
+main {
+  min-height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+section.dashboard,
+section.historico-reservas {
+  flex: 1;
+}
+
+/* Loader spinner fullscreen */
+#fullscreen-loading {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* INICIO */
+/* Estilo das Abas */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  background-color: #001b3b;
+  color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 10px;
+}
+
+.tab-btn:hover {
+  background-color: #ff7700;
+}
+
+.tab-btn.active {
+  background-color: #ff851b;
+}
+
+/* Conteúdo das Abas */
+.tab-content {
+  display: none;
+  text-align: center;
+  color: #fff;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Lista de Reservas Ativas */
+.reservas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Estilo de cada item de reserva com layout retangular */
+.reserva-item {
+  display: flex;
+  background-color: #001f3f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Imagem do estabelecimento */
+.reserva-imagem img {
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+/* Informações do estabelecimento */
+.reserva-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+/* Ações de cada reserva */
+.reserva-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.btn-editar,
+.btn-cancelar,
+.btn-gerenciar-time {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-editar {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.btn-editar:hover {
+  background-color: #2980b9;
+}
+
+.btn-cancelar {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.btn-cancelar:hover {
+  background-color: #c0392b;
+}
+
+.btn-gerenciar-time {
+  background-color: #ff851b;
+  color: #fff;
+}
+
+.btn-gerenciar-time:hover {
+  background-color: #ff7700;
+}
+
+/* HISTORICO */
+
+/* Histórico de Reservas - Mesma estrutura de Reservas Ativas */
+.historico-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Estilo de cada item de histórico com layout retangular */
+.historico-card {
+  display: flex;
+  background-color: #001f3f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Imagem do estabelecimento */
+.historico-card img {
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+/* Informações do histórico */
+.historico-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.historico-info h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.historico-info p {
+  margin: 5px 0;
+}
+
+.status-pendente {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-confirmada {
+  color: green;
+  font-weight: bold;
+}
+
+.status-finalizada {
+  color: lightblue;
+  font-weight: bold;
+}
+
+.h2color {
+  color: #ff851b;
+  font-size: 35px;
+}
+
+.user-name {
+  color: #ff851b;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 30px;
+  margin-left: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.paginacao a {
+  padding: 8px 12px;
+  background-color: #3498db;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.paginacao a.disabled {
+  background-color: #ddd;
+  color: #888;
+  pointer-events: none;
+  cursor: default;
+}
+
+.paginacao a:hover:not(.disabled) {
+  background-color: #2980b9;
+}

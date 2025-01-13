@@ -1,0 +1,12 @@
+{
+    "name": "fusion-sports/app",
+    "description": "Projeto FusionSports",
+    "authors": [
+        {
+            "name": "FusionSports Team"
+        }
+    ],
+    "require": {
+        "paypal/paypal-checkout-sdk": "^1.0"
+    }
+}

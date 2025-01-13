@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Destinatário do e-mail (seu e-mail pessoal)
-    $destinatario = "fusion.sports.site@gmail.com";
+    $destinatario = "ADICIONE UM EMAIL AQUI";
 
     // Assunto do e-mail
     $assunto = "Nova mensagem de contato do site FusionSports";
